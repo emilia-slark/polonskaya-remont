@@ -1,0 +1,85 @@
+@use "@styles/variables" as *;
+
+.header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2vw 4vw;
+  background: transparent;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
+}
+
+.logoHeader {
+  font-size: $headerText;
+  z-index: 100;
+  mix-blend-mode: luminosity;
+}
+
+.navList {
+  display: flex;
+  gap: 2vw;
+}
+
+.menuButton {
+  display: none;
+  z-index: 100;
+}
+
+@media (max-width: 1024px) {
+  .header {
+    padding: 6vw;
+
+    &:has(.active) {
+      color: $accent-color-dark;
+    }
+  }
+
+  .navMenu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    background-color: $bg-base-color;
+    transition: opacity 0.2s ease-in-out;
+    opacity: 0;
+    z-index: -10;
+    pointer-events: none;
+
+    &.active {
+      z-index: 10;
+      pointer-events: all;
+    }
+  }
+
+  .active {
+    opacity: 1;
+    z-index: 5;
+  }
+
+  .navList {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6vmin;
+    width: 100vw;
+    height: 100vh;
+    font-size: 6vmin;
+    z-index: -10;
+  }
+
+  .menuButton {
+    display: block;
+    // height: 35px;
+    // width: 35px;
+    // z-index: 11;
+  }
+}

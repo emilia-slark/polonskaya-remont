@@ -1,0 +1,81 @@
+@use "./nullstyles" as *;
+@use "./variables" as *;
+@use "./placeholders" as *;
+
+@font-face {
+  font-family: "Betmo Regular Cyr";
+  src: url("../../assets/fonts/Betmo\ Regular\ Cyr.otf");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "HSESans-Thin";
+  src: url("../../assets/fonts/HSESans-Thin.otf");
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: "HSESans-Regular";
+  src: url("../../assets/fonts/HSESans-Regular.otf");
+  font-weight: 400;
+}
+
+
+body {
+  margin: 0;
+  font-family: $fontFamily;
+  font-size: 16px;
+  color: $accent-color-light;
+  position: relative;
+  background-color: $bg-base-color;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  width: 100%;
+}
+
+.container {
+  position: relative;
+  margin: 0 auto;
+  padding-inline: 20px;
+  max-width: $maxWidthContainer;
+  width: 100%;
+}
+
+.redirect-link {
+  @extend %bd-radius;
+
+  display: inline-block;
+  padding: 1rem 1.5rem;
+  line-height: 100%;
+
+  &.light {
+    background-color: $accent-color-light;
+    color: $accent-color-dark;
+  }
+
+  &.dark {
+    background-color: $accent-color-dark;
+    color: $bg-accent-color;
+  }
+}
+
+svg {
+  stroke-width: 2px;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  fill: none;
+}
+
+.section {
+  min-height: 100%;
+  margin-bottom: 9vw;
+}
+
+.accent-calligraph-text {
+  font-family: "Betmo Regular Cyr";
+}
+
+// TODO Поменять шрифты

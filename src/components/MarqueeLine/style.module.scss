@@ -1,0 +1,13 @@
+@use "@styles/variables" as *;
+
+.container {
+  background-color: $bg-accent-color;
+  padding-top: 3vw;
+}
+
+.text {
+  color: $accent-color-dark;
+  font-size: clamp(80px, 6.5vw, 128px);
+  display: block;
+  width: fit-content;
+}

@@ -1,0 +1,10 @@
+@use "@styles/variables" as *;
+
+.wrapper {
+  background-color: $bg-accent-color;
+  color: $accent-color-dark;
+}
+
+.content {
+  padding-block: 3vw;
+}

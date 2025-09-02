@@ -1,0 +1,11 @@
+%bd-radius {
+  border-radius: 0.8rem;
+}
+
+%header-logo {
+
+  
+  @media (min-width: 2160px) {
+    font-size: calc(var(--heading-1-size-value) * 1rem);
+  }
+}

@@ -21,7 +21,19 @@
     "noUnusedParameters": true,
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
+
+    "baseUrl": ".",
+    "paths": {
+      "@constants" : ["src/constants"],
+      "@types" : ["src/utils/types.ts"],
+      "@helpers" : ["src/utils/helpers.ts"],
+      "@assets" : ["src/assets"],
+      "@styles" : ["src/styles/scss"],
+      "@ui" : ["src/ui"],
+      "@pages" : ["src/pages"],
+      "@components" : ["src/components"],
+    }
   },
   "include": ["src"]
 }

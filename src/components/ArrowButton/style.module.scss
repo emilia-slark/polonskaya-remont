@@ -1,0 +1,47 @@
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 8;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  line-height: 1;
+  transition: background 0.15s;
+
+  @media (max-width: 512px) {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+.nav:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.nav:hover:not(:disabled) {
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.arrowWrapper {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  width: 36px;
+  height: 36px;
+}
+
+.prev {
+  left: 4vw;
+}
+.next {
+  right: 4vw;
+}
