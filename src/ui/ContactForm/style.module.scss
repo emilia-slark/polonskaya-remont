@@ -20,7 +20,7 @@
 .description {
   display: flex;
   flex-direction: column;
-  gap: max(3vw, 30px);
+  gap: max(2vw, 20px);
 
   h2 {
     font-size: calc(($heading-1-size-value - 1) * 0.9vw + 1rem);
@@ -50,7 +50,7 @@
 
   label {
     display: block;
-    font-size: calc(0.6vw + 16px);
+    font-size: calc(0.4vw + 16px);
     margin-bottom: min(2vw, 10px);
 
     &:has(+ input[required])::after {

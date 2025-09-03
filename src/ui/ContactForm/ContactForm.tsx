@@ -15,7 +15,7 @@ export const ContactForm = () => {
     phone: "",
     message: "",
   });
-  const [error, setError] = useState<string | null>(null);
+  // const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const handleInputChange =
@@ -49,7 +49,7 @@ export const ContactForm = () => {
       console.log(result);
     } catch (error) {
       if (error instanceof Error) {
-        setError(error.message);
+        // setError(error.message);
       }
     } finally {
       setIsLoading(false);

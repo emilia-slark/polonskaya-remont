@@ -3,7 +3,6 @@ import { LABEL, ROUTES } from "@constants";
 import styles from "./styles.module.scss";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { BurgerButton } from "@components";
-import { motion } from "framer-motion";
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -19,13 +18,10 @@ export const Header = () => {
   }, []);
 
   return (
-    <motion.header
+    <header
       className={`${styles.header} ${
         location.pathname === "/" && styles.mainPage
       }`}
-      initial={initRender.current ? { opacity: 0, y: -50, scale: 0 } : false}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
-      transition={{ duration: 0.2 }}
     >
       <Link
         to={ROUTES.MAIN}
@@ -52,7 +48,7 @@ export const Header = () => {
         className={styles.menuButton}
         onClick={handleClick}
       />
-    </motion.header>
+    </header>
   );
 };
 
