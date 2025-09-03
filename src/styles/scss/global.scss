@@ -98,6 +98,25 @@ body {
   background-color: $bg-base-color;
 }
 
+footer {
+  padding-bottom: max(3vw, 30px);
+  margin-top: min(8%, 80px);
+
+  a {
+    @extend %hover-decorated-line;
+  }
+
+  .city {
+    text-align: center;
+    margin-top: max(3vw, 30px);
+    font-size: 1em;
+  }
+
+  @media (max-width: $mobile) {
+    padding-block: 6vw;
+  }
+}
+
 .overlay {
   background-color: rgba(0, 0, 0, 0.5);
   height: 100%;
@@ -114,6 +133,7 @@ body {
 
 .redirect-link {
   @extend %bd-radius;
+  @extend %hover-opacity;
 
   display: inline-block;
   padding: 1rem 1.5rem;
@@ -135,6 +155,10 @@ body {
   }
 }
 
+address {
+  font-style: normal;
+}
+
 svg {
   stroke-width: 2px;
   stroke-linejoin: round;
@@ -143,8 +167,10 @@ svg {
 }
 
 .section {
-  min-height: 100%;
-  margin-bottom: min(15%, 160px);
+  &:not(:last-child) {
+    min-height: 100%;
+    margin-bottom: min(15%, 160px);
+  }
 }
 
 // .attention-pulse {

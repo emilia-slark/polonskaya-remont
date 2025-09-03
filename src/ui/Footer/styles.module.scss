@@ -1,14 +1,15 @@
 @use "@styles/variables" as *;
+@use "@styles/placeholders" as *;
 
 footer {
   color: $accent-color-dark;
-  padding: 4vw;
 }
 
 .content {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   justify-items: center;
+  row-gap: max(2vw, 20px);
 }
 
 .social {
@@ -25,7 +26,6 @@ footer {
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 
@@ -44,6 +44,15 @@ footer {
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
+  text-align: center;
+
+  & > a {
+    @extend %hover-decorated-line;
+  }
+
+  @media (max-width: $tablet) {
+    gap: 1em;
+  }
 }
 
 .workHours {
@@ -51,10 +60,6 @@ footer {
 }
 
 @media (max-width: 768px) {
-  footer {
-    padding: 6vw;
-  }
-
   .content {
     grid-template-columns: 1fr 1fr;
   }
@@ -70,5 +75,17 @@ footer {
   .logo {
     grid-row: 2 / 3;
     grid-column: span 2;
+  }
+}
+
+.contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  grid-column: 1 / 4;
+  text-align: center;
+
+  @media (max-width: $tablet) {
+    gap: 1em;
   }
 }
