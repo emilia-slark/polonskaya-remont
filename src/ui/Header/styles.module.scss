@@ -8,10 +8,15 @@
   align-items: center;
   padding: 2vw 4vw;
   background: transparent;
-  position: absolute;
+  position: static;
   top: 0;
   right: 0;
   z-index: 10;
+}
+
+.mainPage {
+  position: absolute;
+  color: $accent-color-light;
 }
 
 .logoHeader {

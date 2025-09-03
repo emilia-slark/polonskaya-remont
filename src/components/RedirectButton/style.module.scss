@@ -1,0 +1,31 @@
+$accent-color-light: rgb(231, 225, 207);
+$accent-color-dark: rgb(66, 59, 47);
+$bg-base-color: rgb(232, 232, 232);
+$bg-accent-color: rgb(211, 205, 187);
+
+.button {
+  display: inline-block;
+  padding: 1rem 1.5rem;
+  line-height: 100%;
+  text-align: center;
+
+  &.light {
+    background-color: $accent-color-light;
+    color: $accent-color-dark;
+  }
+
+  &.dark {
+    background-color: $accent-color-dark;
+    color: $bg-accent-color;
+
+    &.bg {
+      color: $bg-base-color;
+    }
+  }
+
+  border-radius: 0.8rem;
+  transition: opacity 0.2s ease-in-out;
+  &:hover {
+    opacity: 0.8;
+  }
+}

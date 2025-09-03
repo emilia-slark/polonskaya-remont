@@ -6,19 +6,23 @@ export const Layout = () => {
   const location = useLocation();
 
   return (
+    // <AnimatePresence mode="popLayout">
+    //   <motion.div
+    //     key={location.pathname}
+    //     initial={{ opacity: 0, y: -50 }}
+    //     animate={{ opacity: 1, y: 0 }}
+    //     exit={{ opacity: 0, y: 50 }}
+    //     transition={{ duration: 0.2 }}
+    //   >
+    //     <Header />
+    //     <Outlet />
+    //     <Footer />
+    //   </motion.div>
+    // </AnimatePresence>
+
     <>
       <Header />
-      <AnimatePresence mode="popLayout">
-        <motion.div
-          key={location.pathname}
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 50 }}
-          transition={{ duration: 0.2 }}
-        >
-          <Outlet />
-        </motion.div>
-      </AnimatePresence>
+      <Outlet />
       <Footer />
     </>
   );

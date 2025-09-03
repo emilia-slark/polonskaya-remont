@@ -1,4 +1,4 @@
-import { galleryItems } from "@constants";
+import { galleryItems, socialLinks } from "@constants";
 import style from "./styles.module.scss";
 import { getPublicAsset } from "@helpers";
 
@@ -10,7 +10,11 @@ export const Gallery = () => (
         <img src={getPublicAsset(item)} alt="" loading="lazy" />
       ))}
     </div>
-    <a href="" className="redirect-link dark bg">
+    <a
+      href={socialLinks.Telegram}
+      target="_blank"
+      className="redirect-link dark bg"
+    >
       Канал
     </a>
   </section>

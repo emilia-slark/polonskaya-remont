@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
 import styles from "./styles.module.scss";
 import { ROUTES } from "@constants";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { RedirectButton } from "@components";
 
 export const Intro = () => {
   const { scrollY } = useScroll();
@@ -16,17 +16,13 @@ export const Intro = () => {
         >
           <div className={styles.wrapper}>
             <h1 className={`${styles.introTitle} ${styles.animatedIn}`}>
-              {/* Создаем Пространство <br />
-              для Вашей <br /> */}
               <p>Создаем</p>
               <p>Пространство</p>
               <p>для Вашей</p>
               <div className="accent-calligraph-text">Гармонии</div>
             </h1>
             <div className={styles.animatedIn}>
-              <Link to={ROUTES.ABOUT} className="redirect-link light">
-                Читать больше
-              </Link>
+              <RedirectButton to={ROUTES.ABOUT} title="Читать больше" />
             </div>
           </div>
         </motion.div>
@@ -34,6 +30,3 @@ export const Intro = () => {
     </section>
   );
 };
-
-// background-color: $accent-color-light;
-// color: $accent-color-dark;

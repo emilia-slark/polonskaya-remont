@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
 import styles from "./style.module.scss";
 import { ROUTES } from "@constants";
+import { RedirectButton } from "@components";
 
 export const BookSection = () => (
   <section className={`${styles.wrapper}`}>
@@ -22,9 +22,7 @@ export const BookSection = () => (
           <br />
           Запишитесь сегодня — и начните путь к&nbsp;своей&nbsp;мечте.
         </p>
-        <Link to={`${ROUTES.ABOUT}#contact-us`} className="redirect-link dark">
-          Записаться
-        </Link>
+        <RedirectButton to={`${ROUTES.ABOUT}#form`} title="Записаться" dark />
       </div>
     </div>
   </section>

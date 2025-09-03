@@ -2,7 +2,7 @@ import { Carousel, MarqueeLine } from "@components";
 import { carouselItems } from "@constants";
 import { BookSection, Card, Gallery, Intro, VideoContainer } from "@ui";
 
-export const Main = () => (
+export const MainPage = () => (
   <main>
     <Intro />
     <Carousel>

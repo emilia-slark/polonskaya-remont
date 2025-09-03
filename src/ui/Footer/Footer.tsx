@@ -16,7 +16,7 @@ export const Footer = () => (
           </nav>
         </div>
       </div>
-      <img src="/logo-cropped.webp" className={styles.logo}></img>
+      <img src="/logo-cropped.webp" className={styles.logo} loading="lazy"></img>
       <div className={styles.wrapper}>
         <div className={styles.social}>
           <h4 className={styles.footerTitle}>Часы&nbsp;работы</h4>

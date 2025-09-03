@@ -9,98 +9,28 @@
 }
 
 @font-face {
-  font-family: "HSESans-Thin";
+  font-family: "HSESans";
   src: url("../../assets/fonts/HSESans-Thin.otf");
   font-weight: 100;
 }
 
 @font-face {
-  font-family: "HSESans-Regular";
+  font-family: "HSESans";
   src: url("../../assets/fonts/HSESans-Regular.otf");
   font-weight: 400;
 }
-
-// @-webkit-keyframes heartbeat {
-//   from {
-//     -webkit-transform: scale(1);
-//     transform: scale(1);
-//     -webkit-transform-origin: center center;
-//     transform-origin: center center;
-//     -webkit-animation-timing-function: ease-out;
-//     animation-timing-function: ease-out;
-//   }
-//   10% {
-//     -webkit-transform: scale(0.95);
-//     transform: scale(0.95);
-//     -webkit-animation-timing-function: ease-in;
-//     animation-timing-function: ease-in;
-//   }
-//   17% {
-//     -webkit-transform: scale(0.99);
-//     transform: scale(0.99);
-//     -webkit-animation-timing-function: ease-out;
-//     animation-timing-function: ease-out;
-//   }
-//   33% {
-//     -webkit-transform: scale(0.91);
-//     transform: scale(0.91);
-//     -webkit-animation-timing-function: ease-in;
-//     animation-timing-function: ease-in;
-//   }
-//   45% {
-//     -webkit-transform: scale(1);
-//     transform: scale(1);
-//     -webkit-animation-timing-function: ease-out;
-//     animation-timing-function: ease-out;
-//   }
-// }
-// @keyframes heartbeat {
-//   from {
-//     -webkit-transform: scale(1);
-//     transform: scale(1);
-//     -webkit-transform-origin: center center;
-//     transform-origin: center center;
-//     -webkit-animation-timing-function: ease-out;
-//     animation-timing-function: ease-out;
-//   }
-//   10% {
-//     -webkit-transform: scale(0.95);
-//     transform: scale(0.95);
-//     -webkit-animation-timing-function: ease-in;
-//     animation-timing-function: ease-in;
-//   }
-//   17% {
-//     -webkit-transform: scale(0.99);
-//     transform: scale(0.99);
-//     -webkit-animation-timing-function: ease-out;
-//     animation-timing-function: ease-out;
-//   }
-//   33% {
-//     -webkit-transform: scale(0.91);
-//     transform: scale(0.91);
-//     -webkit-animation-timing-function: ease-in;
-//     animation-timing-function: ease-in;
-//   }
-//   45% {
-//     -webkit-transform: scale(1);
-//     transform: scale(1);
-//     -webkit-animation-timing-function: ease-out;
-//     animation-timing-function: ease-out;
-//   }
-// }
 
 body {
   margin: 0;
   font-family: $fontFamily;
   font-size: 16px;
-  color: $accent-color-light;
+  color: $accent-color-dark;
   position: relative;
   background-color: $bg-base-color;
 }
 
 footer {
-  padding-bottom: max(3vw, 30px);
-  margin-top: min(8%, 80px);
+  padding-block: max(3vw, 30px);
 
   a {
     @extend %hover-decorated-line;
@@ -110,6 +40,7 @@ footer {
     text-align: center;
     margin-top: max(3vw, 30px);
     font-size: 1em;
+    font-weight: 400;
   }
 
   @media (max-width: $mobile) {
@@ -126,9 +57,13 @@ footer {
 .container {
   position: relative;
   margin: 0 auto;
-  padding-inline: 20px;
+  padding-inline: 4vw;
   max-width: $maxWidthContainer;
   width: 100%;
+
+  @media (max-width: $tablet) {
+    padding-inline: 6vw;
+  }
 }
 
 .redirect-link {
@@ -169,7 +104,7 @@ svg {
 .section {
   &:not(:last-child) {
     min-height: 100%;
-    margin-bottom: min(15%, 160px);
+    margin-bottom: min(8%, 160px);
   }
 }
 

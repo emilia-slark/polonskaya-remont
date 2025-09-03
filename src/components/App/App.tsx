@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 
 import { ROUTES } from "@constants";
-import { About, Main } from "@pages";
+import { AboutPage, MainPage } from "@pages";
 import { Layout } from "@components";
 
 export function App() {
@@ -9,9 +9,8 @@ export function App() {
     <>
       <Routes>
         <Route path={ROUTES.MAIN} element={<Layout />}>
-          <Route index element={<Main />} />
-          <Route path={ROUTES.ABOUT} element={<About />} />
-          {/* <Routes path={ROUTES.CONTACTS} /> */}
+          <Route index element={<MainPage />} />
+          <Route path={ROUTES.ABOUT} element={<AboutPage />} />
         </Route>
       </Routes>
     </>

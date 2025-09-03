@@ -1,0 +1,59 @@
+@use "@styles/variables" as *;
+
+.wrapper {
+  background-color: $bg-accent-color;
+  color: $accent-color-dark;
+}
+
+.image {
+  display: block;
+  object-fit: cover;
+  width: 100%;
+  aspect-ratio: 1 / 1.2;
+
+  // // pointer-events: none;
+  @media (max-width: $mobile) {
+    aspect-ratio: 1.2 / 1;
+  }
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: max(6vw, 30px);
+  padding-top: max(3vw, 30px);
+
+  @media (max-width: $mobile) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+
+  h2 {
+    font-size: calc(($heading-1-size-value - 1) * 0.9vw + 1rem);
+    line-height: 140%;
+
+    @media (max-width: $tablet) {
+      font-size: calc(
+        ($heading-1-size-value - 1) * calc(0.01 * min(100vh, 900px)) + 1rem
+      );
+      line-height: 120%;
+    }
+  }
+
+  p {
+    line-height: 160%;
+    font-size: calc(($heading-1-size-value - 1) * 0.1vw + 1rem);
+  }
+
+  @media (max-width: $mobile) {
+    order: -1;
+    align-items: stretch;
+    gap: 30px;
+  }
+}
