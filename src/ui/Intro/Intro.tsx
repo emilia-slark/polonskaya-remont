@@ -8,7 +8,7 @@ export const Intro = () => {
   const yContent = useTransform(scrollY, [0, 500], [0, -200]);
 
   return (
-    <section className={`${styles.intro} section`}>
+    <section className={`section ${styles.intro} `}>
       <div className="overlay">
         <motion.div
           className={`container ${styles.content}`}

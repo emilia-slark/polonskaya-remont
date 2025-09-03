@@ -25,7 +25,7 @@ export const Header = () => {
       transition={{ duration: 0.2 }}
     >
       <Link to={ROUTES.MAIN} className={styles.logoHeader}>
-        {LABEL.HEADER.LOGO}
+        POLONSKAYA | Ремонт и&nbsp;дизайн интерьера
       </Link>
       <nav
 

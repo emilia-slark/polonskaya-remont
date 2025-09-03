@@ -20,6 +20,74 @@
   font-weight: 400;
 }
 
+// @-webkit-keyframes heartbeat {
+//   from {
+//     -webkit-transform: scale(1);
+//     transform: scale(1);
+//     -webkit-transform-origin: center center;
+//     transform-origin: center center;
+//     -webkit-animation-timing-function: ease-out;
+//     animation-timing-function: ease-out;
+//   }
+//   10% {
+//     -webkit-transform: scale(0.95);
+//     transform: scale(0.95);
+//     -webkit-animation-timing-function: ease-in;
+//     animation-timing-function: ease-in;
+//   }
+//   17% {
+//     -webkit-transform: scale(0.99);
+//     transform: scale(0.99);
+//     -webkit-animation-timing-function: ease-out;
+//     animation-timing-function: ease-out;
+//   }
+//   33% {
+//     -webkit-transform: scale(0.91);
+//     transform: scale(0.91);
+//     -webkit-animation-timing-function: ease-in;
+//     animation-timing-function: ease-in;
+//   }
+//   45% {
+//     -webkit-transform: scale(1);
+//     transform: scale(1);
+//     -webkit-animation-timing-function: ease-out;
+//     animation-timing-function: ease-out;
+//   }
+// }
+// @keyframes heartbeat {
+//   from {
+//     -webkit-transform: scale(1);
+//     transform: scale(1);
+//     -webkit-transform-origin: center center;
+//     transform-origin: center center;
+//     -webkit-animation-timing-function: ease-out;
+//     animation-timing-function: ease-out;
+//   }
+//   10% {
+//     -webkit-transform: scale(0.95);
+//     transform: scale(0.95);
+//     -webkit-animation-timing-function: ease-in;
+//     animation-timing-function: ease-in;
+//   }
+//   17% {
+//     -webkit-transform: scale(0.99);
+//     transform: scale(0.99);
+//     -webkit-animation-timing-function: ease-out;
+//     animation-timing-function: ease-out;
+//   }
+//   33% {
+//     -webkit-transform: scale(0.91);
+//     transform: scale(0.91);
+//     -webkit-animation-timing-function: ease-in;
+//     animation-timing-function: ease-in;
+//   }
+//   45% {
+//     -webkit-transform: scale(1);
+//     transform: scale(1);
+//     -webkit-animation-timing-function: ease-out;
+//     animation-timing-function: ease-out;
+//   }
+// }
 
 body {
   margin: 0;
@@ -50,6 +118,7 @@ body {
   display: inline-block;
   padding: 1rem 1.5rem;
   line-height: 100%;
+  text-align: center;
 
   &.light {
     background-color: $accent-color-light;
@@ -59,6 +128,10 @@ body {
   &.dark {
     background-color: $accent-color-dark;
     color: $bg-accent-color;
+
+    &.bg {
+      color: $bg-base-color;
+    }
   }
 }
 
@@ -71,11 +144,17 @@ svg {
 
 .section {
   min-height: 100%;
-  margin-bottom: 9vw;
+  margin-bottom: min(15%, 160px);
 }
+
+// .attention-pulse {
+//   -webkit-animation: heartbeat 1.5s ease-in-out both;
+//   animation: heartbeat 1.5s ease-in-out both;
+// }
 
 .accent-calligraph-text {
   font-family: "Betmo Regular Cyr";
+  font-size: 1.2em;
 }
 
 // TODO Поменять шрифты

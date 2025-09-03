@@ -1,5 +1,5 @@
 import { useKeenSlider } from "keen-slider/react";
-import { useCallback, type ReactNode } from "react";
+import { useCallback, useMemo, type ReactNode } from "react";
 import { ArrowButton } from "@components";
 import "keen-slider/keen-slider.min.css";
 import style from "./styles.module.scss";
@@ -48,8 +48,12 @@ export const Carousel = ({ children }: CarouselProps) => {
     instanceRef.current?.next();
   }, []);
 
+  const idCarousel = useMemo(() => "#carousel", []);
+
+  // const location = useLocation();
+  // ${location.hash === idCarousel && "attention-pulse"}
   return (
-    <section className={`section ${style.outContainer}`}>
+    <section className={`section ${style.outContainer}`} id={idCarousel}>
       <div ref={sliderRef} className={`keen-slider`}>
         {children}
       </div>

@@ -1,6 +1,6 @@
 export const LABEL = {
   HEADER: {
-    LOGO: "POLONSKAYA | Ремонт и дизайн интерьера",
+    LOGO: "",
     NAV_ABOUT: "О нас",
     NAV_CONTACTS: "Контакты"
   },

@@ -19,15 +19,11 @@
 .content {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 6vw;
-  padding-top: 3vw;
+  gap: max(6vw, 30px);
+  padding-top: max(3vw, 30px);
 
   @media (max-width: $mobile) {
     grid-template-columns: 1fr;
-
-    .description {
-      order: -1;
-    }
   }
 }
 
@@ -54,6 +50,8 @@
   }
 
   @media (max-width: $mobile) {
+    order: -1;
+    align-items: stretch;
     gap: 30px;
   }
 }
