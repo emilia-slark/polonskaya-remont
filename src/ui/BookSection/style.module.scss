@@ -39,7 +39,7 @@
 
     @media (max-width: $tablet) {
       font-size: calc(
-        ($heading-1-size-value - 1) * calc(0.01 * min(100vh, 900px)) + 1rem
+        ($heading-1-size-value - 1) * calc(0.01 * 900px) + 1rem
       );
       line-height: 120%;
     }
