@@ -1,7 +1,7 @@
 @use "@styles/variables" as *;
 
 .intro {
-  background-image: url("@assets/hero.webp");
+  background-image: url("/main/hero.webp");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
