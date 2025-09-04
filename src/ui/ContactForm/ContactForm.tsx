@@ -44,7 +44,7 @@ export const ContactForm = () => {
 
     try {
       setIsLoading(true);
-      const response = await fetch("https://api.web3forms.com/submit", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/submit`, {
         method: "POST",
         headers: {
           Accept: "application/json",

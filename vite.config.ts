@@ -1,10 +1,11 @@
 import { defineConfig } from "vite";
-import path from "path";
 import react from "@vitejs/plugin-react";
+import { visualizer } from "rollup-plugin-visualizer";
+import path from "path";
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), visualizer({ open: true })],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
@@ -18,7 +19,24 @@ export default defineConfig({
       "@components": path.resolve(__dirname, "./src/components"),
     },
   },
-  build: { minify: "esbuild" },
+  build: {
+    minify: "esbuild",
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes("framer-motion")) {
+            return "vendor-framer";
+          }
+          if (id.includes("react-dom")) {
+            return "vendor-react-dom";
+          }
+        },
+      },
+    },
+  },
+  optimizeDeps: {
+    include: ["react-dom", "framer-motion"],
+  },
 });
 
 // TODO Настроить окружение и конфиг сборщика

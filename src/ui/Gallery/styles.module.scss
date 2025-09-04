@@ -46,7 +46,7 @@
 }
 
 .title {
-  font-size: calc(3 * 0.01 * min(100vh, 900px) + 1rem);
+  font-size: calc(3 * 0.01 * 900px + 1rem);
   color: $accent-color-dark;
   text-align: center;
 

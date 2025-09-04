@@ -1,7 +1,7 @@
 @use "@styles/variables" as *;
 
 .intro {
-  background-image: url("@assets/hero.webp");
+  background-image: url("/main/hero.webp");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -20,7 +20,7 @@
 
   @media (max-width: $mobile) {
     font-size: calc(
-      ($heading-1-size-value - 1) * calc(0.012 * min(100vh, 900px)) + 1rem
+      ($heading-1-size-value - 1) * calc(0.012 * 900px) + 1rem
     );
   }
 }
