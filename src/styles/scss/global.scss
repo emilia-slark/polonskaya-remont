@@ -28,6 +28,7 @@ body {
   position: relative;
   // overflow-x: hidden;
   background-color: $bg-base-color;
+  overscroll-behavior: none;
 }
 
 footer {
