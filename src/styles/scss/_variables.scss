@@ -1,0 +1,22 @@
+$accent-color-light: rgb(231, 225, 207);
+$accent-color-semi: rgb(169, 156, 146);
+$accent-color-dark: rgb(66, 59, 47);
+
+$bg-base-color: rgb(232, 232, 232);
+$bg-accent-color: rgb(211, 205, 187);
+
+$site-title-font-font-size-value: 1.5;
+
+$heading-1-size-value: 4;
+
+$fontFamily: "HSESans", "Times New Roman";
+$fontSize: 14px;
+
+$mobile: 768px;
+$tablet: 1024px;
+$maxWidthContainer: 1600px;
+
+$headerText: calc(($site-title-font-font-size-value - 1) * 1vw + 1rem);
+$headerHeight: calc(8vw + $headerText);
+
+$container-width: min(var($maxWidthContainer, 1500px), calc(100vw - 4vw * 2));

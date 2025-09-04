@@ -1,0 +1,26 @@
+@use "@styles/variables" as *;
+
+.viewport {
+  width: 100%;
+  overflow: hidden;
+  background-color: $bg-accent-color;
+  position: relative;
+}
+
+.track {
+  display: flex;
+  // gap: 20px; // можно убрать, если нужен полностью бесшовный текст
+  white-space: nowrap;
+  will-change: transform;
+}
+
+.item {
+  flex: 0 0 auto;
+}
+
+.text {
+  color: $accent-color-dark;
+  font-size: clamp(4.375rem, 2.0673rem + 4.8077vw, 6.875rem);
+  margin: 0;
+  white-space: nowrap;
+}

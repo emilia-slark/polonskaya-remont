@@ -1,0 +1,12 @@
+@use "@styles/placeholders" as *;
+
+.link {
+  @extend %hover-decorated-line;
+}
+
+.list {
+  padding: 10px 10px 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}

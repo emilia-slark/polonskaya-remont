@@ -1,0 +1,87 @@
+@use "@styles/variables" as *;
+@use "@styles/placeholders" as *;
+
+.wrapper {
+  background-color: $bg-accent-color;
+  color: rgb(66, 59, 47);
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: max(6vw, 30px);
+  padding: max(3vw, 30px);
+
+  @media (max-width: $mobile) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  gap: max(2vw, 20px);
+
+  h2 {
+    font-size: calc(($heading-1-size-value - 1) * 0.9vw + 1rem);
+    @media (max-width: $tablet) {
+      font-size: calc(
+        ($heading-1-size-value - 1) * calc(0.01 * min(100vh, 900px)) + 1rem
+      );
+    }
+  }
+
+  p {
+    line-height: 160%;
+    font-size: calc(($heading-1-size-value - 1) * 0.1vw + 1rem);
+  }
+
+  @media (max-width: $mobile) {
+    order: -1;
+    align-items: stretch;
+    gap: 30px;
+  }
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+
+  label {
+    display: block;
+    font-size: calc(0.4vw + 16px);
+    margin-bottom: min(2vw, 10px);
+
+    &:has(+ input[required])::after {
+      content: "*";
+      color: red;
+      margin-left: 5px;
+    }
+  }
+
+  input,
+  textarea {
+    resize: vertical;
+    background-color: transparent;
+    padding: 5px 10px;
+    @extend %bd-radius;
+    border: 2px solid $accent-color-semi;
+    color: #000;
+    width: 100%;
+    font-size: calc(0.3vw + 1rem);
+    transition: border 0.2s ease-in-out;
+
+    &:hover {
+      border: 2px solid $accent-color-semi;
+    }
+
+    &:focus {
+      border: 2px solid $accent-color-dark;
+    }
+  }
+
+  textarea {
+    min-height: 4em;
+  }
+}

@@ -1,0 +1,123 @@
+@use "./nullstyles" as *;
+@use "./variables" as *;
+@use "./placeholders" as *;
+
+@font-face {
+  font-family: "Betmo Regular Cyr";
+  src: url("../../assets/fonts/Betmo\ Regular\ Cyr.otf");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "HSESans";
+  src: url("../../assets/fonts/HSESans-Thin.otf");
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: "HSESans";
+  src: url("../../assets/fonts/HSESans-Regular.otf");
+  font-weight: 400;
+}
+
+body {
+  margin: 0;
+  font-family: $fontFamily;
+  font-size: 16px;
+  color: $accent-color-dark;
+  position: relative;
+  // overflow-x: hidden;
+  background-color: $bg-base-color;
+}
+
+footer {
+  padding-block: max(3vw, 30px);
+
+  a {
+    @extend %hover-decorated-line;
+  }
+
+  .city {
+    text-align: center;
+    margin-top: max(3vw, 30px);
+    font-size: 1em;
+    font-weight: 400;
+  }
+
+  @media (max-width: $mobile) {
+    padding-block: 6vw;
+  }
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  width: 100%;
+}
+
+.container {
+  position: relative;
+  margin: 0 auto;
+  padding-inline: 4vw;
+  max-width: $maxWidthContainer;
+  width: 100%;
+
+  @media (max-width: $tablet) {
+    padding-inline: 6vw;
+  }
+}
+
+.redirect-link {
+  @extend %bd-radius;
+  @extend %hover-opacity;
+
+  display: inline-block;
+  padding: 1rem 1.5rem;
+  line-height: 100%;
+  text-align: center;
+  min-width: 150px;
+
+  &.light {
+    background-color: $accent-color-light;
+    color: $accent-color-dark;
+  }
+
+  &.dark {
+    background-color: $accent-color-dark;
+    color: $bg-accent-color;
+
+    &.bg {
+      color: $bg-base-color;
+    }
+  }
+}
+
+address {
+  font-style: normal;
+}
+
+svg {
+  stroke-width: 2px;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  fill: none;
+}
+
+.section {
+  &:not(:last-child) {
+    min-height: 100%;
+    margin-bottom: min(8%, 160px);
+  }
+}
+
+// .attention-pulse {
+//   -webkit-animation: heartbeat 1.5s ease-in-out both;
+//   animation: heartbeat 1.5s ease-in-out both;
+// }
+
+.accent-calligraph-text {
+  font-family: "Betmo Regular Cyr";
+  font-size: 1.2em;
+}
+
+// TODO Поменять шрифты

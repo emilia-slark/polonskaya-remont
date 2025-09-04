@@ -1,0 +1,95 @@
+@use "@styles/variables" as *;
+@use "@styles/placeholders" as *;
+
+footer {
+  color: $accent-color-dark;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  row-gap: max(2vw, 20px);
+}
+
+.social {
+  // TODO Изменить гэп
+  flex: 0 1 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  gap: 1rem;
+}
+
+.wrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @media (max-width: $mobile) {
+    justify-content: flex-start;
+  }
+}
+
+.footerTitle {
+  color: $accent-color-semi;
+  text-align: center;
+  font-size: clamp(1.25rem, 0.8864rem + 1.8182vw, 2.25rem);
+}
+
+.logo {
+  max-height: clamp(10rem, 8.1818rem + 9.0909vw, 15rem);
+}
+
+.socialList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: center;
+
+  & > a {
+    @extend %hover-decorated-line;
+  }
+
+  @media (max-width: $tablet) {
+    gap: 1em;
+  }
+}
+
+.workHours {
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .content {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .social {
+    flex: 0;
+  }
+
+  .wrapper:first {
+    grid-row: 1 / 2;
+  }
+
+  .logo {
+    grid-row: 2 / 3;
+    grid-column: span 2;
+  }
+}
+
+.contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  grid-column: 1 / 4;
+  text-align: center;
+
+  @media (max-width: $tablet) {
+    gap: 1em;
+  }
+}

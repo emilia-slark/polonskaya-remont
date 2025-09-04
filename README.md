@@ -1,4 +1,4 @@
-# React + TypeScript + Vite
+# React + React Router DOM + TypeScript + Vite + SCSS-modules + Framer Motion
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 

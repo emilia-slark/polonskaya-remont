@@ -1,0 +1,11 @@
+@use "@styles/variables" as *;
+
+.wrapper {
+  text-align: center;
+  padding-block: 30vh;
+}
+
+.title {
+  color: $accent-color-dark;
+  font-size: calc(($heading-1-size-value - 1) * 0.9vw + 1rem);
+}
