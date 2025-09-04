@@ -1,4 +1,3 @@
-import { socialLinks } from "@constants";
 import styles from "./styles.module.scss";
 
 export const Footer = () => (
@@ -8,15 +7,18 @@ export const Footer = () => (
         <div className={styles.social}>
           <h4 className={styles.footerTitle}>Социальные&nbsp;сети</h4>
           <nav className={styles.socialList}>
-            {Object.entries(socialLinks).map(([network, link]) => (
-              <a href={link as string} key={network}>
-                {network}
-              </a>
-            ))}
+            <a href="https://t.me/remontpolonskaya">
+              <img src="/telegram.svg" loading="lazy" />
+              Telegram
+            </a>
           </nav>
         </div>
       </div>
-      <img src="/logo-cropped.webp" className={styles.logo} loading="lazy"></img>
+      <img
+        src="/logo-cropped.webp"
+        className={styles.logo}
+        loading="lazy"
+      ></img>
       <div className={styles.wrapper}>
         <div className={styles.social}>
           <h4 className={styles.footerTitle}>Часы&nbsp;работы</h4>
