@@ -1,25 +1,27 @@
 import { Outlet, useLocation } from "react-router-dom";
 import { Footer, Header } from "@ui";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 
 export const Layout = () => {
   const location = useLocation();
   const isHomePage = location.pathname === "/";
+  const reducedMotion = useReducedMotion();
 
   return (
     <>
       <Header absolute={isHomePage} />
-      <AnimatePresence mode={isHomePage ? "popLayout" : "wait"}>
+      <AnimatePresence mode="sync">
         <motion.div
           key={location.pathname}
-          initial={{ opacity: 0.5, y: -50 }}
+          style={{ willChange: "transform, opacity" }}
+          initial={reducedMotion ? false : { opacity: 0.6, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.2 }}
+          transition={{ duration: 0.3 }}
         >
           <Outlet />
-          <Footer />
         </motion.div>
       </AnimatePresence>
+      <Footer />
     </>
   );
 };
