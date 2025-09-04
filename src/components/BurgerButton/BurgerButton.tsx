@@ -14,7 +14,8 @@ export const BurgerButton = React.memo(
         type="checkbox"
         id={styles.button}
         checked={checked}
-        onClick={onClick}
+        onChange={onClick}
+         
       />
       <label htmlFor={styles.button} className={styles.label}>
         <span></span>

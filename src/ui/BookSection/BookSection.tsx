@@ -1,3 +1,4 @@
+import { ROUTES } from "@constants";
 import styles from "./style.module.scss";
 import { RedirectButton } from "@components";
 
@@ -22,7 +23,7 @@ export const BookSection = () => (
           Запишитесь сегодня — и начните путь к&nbsp;своей&nbsp;мечте.
         </p>
         <RedirectButton
-          to={`https://wa.me/79013903946?text=Здравствуйте,%20хочу%20узнать%20по%20поводу%20ремонта`}
+          to={`${ROUTES.ABOUT}#contact-us`}
           title="Записаться"
           dark
         />
@@ -30,5 +31,3 @@ export const BookSection = () => (
     </div>
   </section>
 );
-
-// TODO Якорь

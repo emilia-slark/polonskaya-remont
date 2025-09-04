@@ -7,3 +7,5 @@ export * from "./VideoContainer/VideoContainer";
 export * from "./Gallery/Gallery";
 export * from "./AboutSection/AboutSection";
 export * from "./ContactForm/ContactForm";
+export * from "./Modal/Modal";
+export * from "./FailureRequest/FailureRequest"

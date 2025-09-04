@@ -10,8 +10,8 @@
   object-fit: cover;
   width: 100%;
   aspect-ratio: 1 / 1.2;
+  align-self: center;
 
-  // // pointer-events: none;
   @media (max-width: $mobile) {
     aspect-ratio: 1.2 / 1;
   }

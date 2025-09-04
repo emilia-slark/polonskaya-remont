@@ -20,7 +20,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: max(6vw, 30px);
-  padding-top: max(3vw, 30px);
+  padding: max(3vw, 30px);
 
   @media (max-width: $mobile) {
     grid-template-columns: 1fr;

@@ -1,4 +1,4 @@
-import { Carousel, MarqueeLine } from "@components";
+import { Carousel, Marquee } from "@components";
 import { carouselItems } from "@constants";
 import { BookSection, Card, Gallery, Intro, VideoContainer } from "@ui";
 
@@ -11,7 +11,8 @@ export const MainPage = () => (
       ))}
     </Carousel>
     <BookSection />
-    <MarqueeLine text="ИСКУССТВО ЖИТЬ КРАСИВО — " />
+
+    <Marquee text="ИСКУССТВО ЖИТЬ КРАСИВО—" />
     <VideoContainer />
     <Gallery />
   </main>

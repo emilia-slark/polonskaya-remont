@@ -4,20 +4,22 @@ import { AnimatePresence, motion } from "framer-motion";
 
 export const Layout = () => {
   const location = useLocation();
+  const isHomePage = location.pathname === "/";
 
   return (
-    <AnimatePresence mode={location.pathname === "/" ? "popLayout" : "wait"}>
-      <Header />
-      <motion.div
-        key={location.pathname}
-        initial={{ opacity: 0.5, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        // exit={{ opacity: 0, y: 10 }}
-        transition={{ duration: 0.2 }}
-      >
-        <Outlet />
-        <Footer />
-      </motion.div>
-    </AnimatePresence>
+    <>
+      <Header absolute={isHomePage} />
+      <AnimatePresence mode={isHomePage ? "popLayout" : "wait"}>
+        <motion.div
+          key={location.pathname}
+          initial={{ opacity: 0.5, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.2 }}
+        >
+          <Outlet />
+          <Footer />
+        </motion.div>
+      </AnimatePresence>
+    </>
   );
 };

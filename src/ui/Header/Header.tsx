@@ -1,13 +1,16 @@
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { LABEL, ROUTES } from "@constants";
 import styles from "./styles.module.scss";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { BurgerButton } from "@components";
 
-export const Header = () => {
+interface HeaderProps {
+  absolute?: boolean;
+}
+
+export const Header = ({ absolute }: HeaderProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const initRender = useRef<boolean>(true);
-  const location = useLocation();
 
   const handleClick = useCallback(() => {
     setIsOpen((prev) => !prev);
@@ -18,11 +21,7 @@ export const Header = () => {
   }, []);
 
   return (
-    <header
-      className={`${styles.header} ${
-        location.pathname === "/" && styles.mainPage
-      }`}
-    >
+    <header className={`${styles.header} ${absolute && styles.mainPage}`}>
       <Link
         to={ROUTES.MAIN}
         className={styles.logoHeader}
