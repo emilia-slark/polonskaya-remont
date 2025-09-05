@@ -15,13 +15,19 @@ export const Intro = () => {
           style={{ y: yContent }}
         >
           <div className={styles.wrapper}>
-            <h1 className={`${styles.introTitle} ${styles.animatedIn}`}>
+            <h1 className={`${styles.introTitle} ${styles.fadeInDown}`}>
               <p>Создаем</p>
               <p>Пространство</p>
               <p>для Вашей</p>
-              <div className="accent-calligraph-text">Гармонии</div>
+              <div className={styles.svgContainer}>
+                <img
+                  src="/main/harmony-decorated.svg"
+                  alt="Гармонии"
+                  className={styles.harmonySvg}
+                />
+              </div>
             </h1>
-            <div className={styles.animatedIn}>
+            <div className={styles.fadeInDown}>
               <RedirectButton to={ROUTES.ABOUT} title="Читать больше" />
             </div>
           </div>

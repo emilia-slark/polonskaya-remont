@@ -3,18 +3,6 @@
 @use "./placeholders" as *;
 
 @font-face {
-  font-family: "Betmo Regular Cyr";
-  src: url("../../assets/fonts/Betmo\ Regular\ Cyr.otf");
-  font-weight: normal;
-}
-
-@font-face {
-  font-family: "HSESans";
-  src: url("../../assets/fonts/HSESans-Thin.otf");
-  font-weight: 100;
-}
-
-@font-face {
   font-family: "HSESans";
   src: url("../../assets/fonts/HSESans-Regular.otf");
   font-weight: 400;
@@ -28,7 +16,7 @@ body {
   position: relative;
   // overflow-x: hidden;
   background-color: $bg-base-color;
-  overscroll-behavior: none;
+  // overscroll-behavior: none;
 }
 
 footer {
@@ -110,15 +98,3 @@ svg {
     margin-bottom: min(8%, 160px);
   }
 }
-
-// .attention-pulse {
-//   -webkit-animation: heartbeat 1.5s ease-in-out both;
-//   animation: heartbeat 1.5s ease-in-out both;
-// }
-
-.accent-calligraph-text {
-  font-family: "Betmo Regular Cyr";
-  font-size: 1.2em;
-}
-
-// TODO Поменять шрифты

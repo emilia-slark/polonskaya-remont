@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /$
+Allow: /about$
+Disallow: /static/
+Disallow: /node_modules/
+Allow: /
+
+Sitemap: https://www.polonskaya-remont.ru/sitemap.xml
