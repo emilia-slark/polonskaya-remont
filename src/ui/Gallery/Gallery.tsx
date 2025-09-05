@@ -1,4 +1,4 @@
-import { galleryItems, socialLinks } from "@constants";
+import { galleryItems } from "@constants";
 import style from "./styles.module.scss";
 import { getPublicAsset } from "@helpers";
 
@@ -12,7 +12,7 @@ export const Gallery = () => {
         ))}
       </div>
       <a
-        href={socialLinks.Telegram}
+        href="https://t.me/remontpolonskaya"
         target="_blank"
         className="redirect-link dark bg"
       >

@@ -8,3 +8,9 @@
 .content {
   padding-block: max(3vw, 30px);
 }
+
+@media (max-width: $mobile) {
+  .video {
+    width: 100%;
+  }
+}
