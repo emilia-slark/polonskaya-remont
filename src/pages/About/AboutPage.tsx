@@ -1,8 +1,11 @@
+import { PageTransition } from "@components";
 import { AboutSection, ContactForm } from "@ui";
 
 export const AboutPage = () => (
-  <main className="page">
-    <AboutSection />
-    <ContactForm />
-  </main>
+  <PageTransition>
+    <main className="page">
+      <AboutSection />
+      <ContactForm />
+    </main>
+  </PageTransition>
 );

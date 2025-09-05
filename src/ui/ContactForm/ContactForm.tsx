@@ -16,6 +16,8 @@ interface ContactFormData {
   message: string;
 }
 
+const idForm = "contact-us";
+
 export const ContactForm = () => {
   const formRef = useRef<HTMLFormElement>(null);
   const dataRef = useRef<ContactFormData>({
@@ -74,7 +76,6 @@ export const ContactForm = () => {
     }
   }, []);
 
-  const idForm = "contact-us";
   useEffect(() => {
     if (location.hash === `#${idForm}`) formRef.current?.scrollIntoView();
   }, []);
