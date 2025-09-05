@@ -1,58 +1,146 @@
-import React, { useRef, useState, useLayoutEffect } from "react";
-import { motion } from "framer-motion";
+import React, {
+  useRef,
+  useState,
+  useCallback,
+  useMemo,
+  useEffect,
+} from "react";
+import { motion, useInView, useAnimation } from "framer-motion";
 import styles from "./style.module.scss";
 
 interface MarqueeProps {
   text: string;
-  speed?: number; // px/sec
+  speed?: number;
 }
 
-export const Marquee: React.FC<MarqueeProps> = ({ text, speed = 120 }) => {
+export const Marquee: React.FC<MarqueeProps> = ({ text, speed = 80 }) => {
+  const viewportRef = useRef<HTMLElement>(null);
   const itemRef = useRef<HTMLDivElement | null>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
   const [itemWidth, setItemWidth] = useState<number>(0);
+  const [currentTranslateX, setCurrentTranslateX] = useState<number>(0);
+  const resizeObserverRef = useRef<ResizeObserver | null>(null);
+  const animationFrameRef = useRef<number>(0);
+  const lastUpdateTimeRef = useRef<number>(0);
+  const controls = useAnimation();
 
-  useLayoutEffect(() => {
+  const isInView = useInView(viewportRef, {
+    margin: "0px",
+    once: false,
+  });
+
+  const measureWidth = useCallback(() => {
     if (!itemRef.current) return;
 
-    const measure = () => {
-      const w = Math.ceil(itemRef.current?.offsetWidth ?? 0);
-      setItemWidth(w);
-    };
-    measure();
+    const width = Math.ceil(itemRef.current.offsetWidth);
+    setItemWidth(width);
+  }, []);
 
-    const ro = new ResizeObserver(() => measure());
-    ro.observe(itemRef.current);
-    return () => ro.disconnect();
+  const getCurrentTranslateX = useCallback(() => {
+    if (!trackRef.current) return 0;
+
+    const transform = trackRef.current.style.transform;
+    if (!transform || !transform.includes("translateX")) return 0;
+
+    const match = transform.match(/translateX\(([^)]+)px\)/);
+    return match ? parseFloat(match[1]) : 0;
+  }, []);
+
+  const startAnimation = useCallback(async () => {
+    if (itemWidth === 0) return;
+
+    const duration = itemWidth / speed;
+
+    await controls.start({
+      x: [currentTranslateX, currentTranslateX - itemWidth],
+      transition: {
+        x: {
+          repeat: Infinity,
+          repeatType: "loop",
+          duration:
+            duration * (1 - (currentTranslateX % itemWidth) / itemWidth),
+          ease: "linear",
+        },
+      },
+    });
+  }, [controls, itemWidth, speed, currentTranslateX]);
+
+  const stopAnimation = useCallback(async () => {
+    const currentX = getCurrentTranslateX();
+    setCurrentTranslateX(currentX);
+
+    await controls.stop();
+    await controls.set({ x: currentX });
+  }, [controls, getCurrentTranslateX]);
+
+  useEffect(() => {
+    if (isInView) {
+      startAnimation();
+    } else {
+      stopAnimation();
+    }
+  }, [isInView, startAnimation, stopAnimation]);
+
+  useEffect(() => {
+    if (!itemRef.current) return;
+
+    measureWidth();
+
+    if (typeof ResizeObserver !== "undefined") {
+      resizeObserverRef.current = new ResizeObserver(measureWidth);
+      resizeObserverRef.current.observe(itemRef.current);
+    }
+
+    return () => {
+      resizeObserverRef.current?.disconnect();
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
+    };
+  }, [measureWidth, text]);
+
+  useEffect(() => {
+    if (!isInView || !trackRef.current) return;
+
+    const updatePosition = (time: number) => {
+      if (time - lastUpdateTimeRef.current > 100) {
+        setCurrentTranslateX(getCurrentTranslateX());
+        lastUpdateTimeRef.current = time;
+      }
+      animationFrameRef.current = requestAnimationFrame(updatePosition);
+    };
+
+    animationFrameRef.current = requestAnimationFrame(updatePosition);
+
+    return () => {
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
+    };
+  }, [isInView, getCurrentTranslateX]);
+
+  const marqueeItems = useMemo(() => {
+    return Array.from({ length: 3 }, (_, index) => (
+      <div
+        key={index}
+        className={styles.item}
+        ref={index === 0 ? itemRef : undefined}
+        aria-hidden={index !== 0}
+      >
+        <h1 className={styles.text}>{text}&nbsp;</h1>
+      </div>
+    ));
   }, [text]);
 
-  const duration = itemWidth > 0 ? itemWidth / speed : 10;
-
   return (
-    <section className={styles.viewport}>
+    <section className={styles.viewport} ref={viewportRef}>
       <motion.div
+        ref={trackRef}
         className={styles.track}
-        animate={{ x: [0, -itemWidth] }}
-        transition={{
-          x: {
-            repeat: Infinity,
-            repeatType: "loop",
-            duration,
-            ease: "linear",
-          },
-        }}
+        animate={controls}
+        initial={{ x: 0 }}
       >
-        <div className={styles.item} ref={itemRef}>
-          <h1 className={styles.text}>{text}&nbsp;</h1>
-        </div>
-        <div className={styles.item} aria-hidden>
-          <h1 className={styles.text}>{text}&nbsp;</h1>
-        </div>
-        <div className={styles.item} aria-hidden>
-          <h1 className={styles.text}>{text}&nbsp;</h1>
-        </div>
-        <div className={styles.item} aria-hidden>
-          <h1 className={styles.text}>{text}&nbsp;</h1>
-        </div>
+        {marqueeItems}
       </motion.div>
     </section>
   );

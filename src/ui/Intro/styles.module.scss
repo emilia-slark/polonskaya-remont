@@ -17,11 +17,10 @@
   text-align: center;
   font-size: calc(($heading-1-size-value - 1) * 1vw + 1rem);
   line-height: 120%;
+  user-select: none;
 
   @media (max-width: $mobile) {
-    font-size: calc(
-      ($heading-1-size-value - 1) * calc(0.012 * 900px) + 1rem
-    );
+    font-size: calc(($heading-1-size-value - 1) * calc(0.012 * 900px) + 1rem);
   }
 }
 
@@ -30,7 +29,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 7vw;
+  gap: max(50px, 8vw);
 }
 
 @keyframes slide-in-fwd-bottom {
@@ -44,36 +43,51 @@
   }
 }
 
-// animista.net
-.animatedIn {
-  -webkit-animation: tracking-in-expand 0.5s cubic-bezier(0.215, 0.61, 0.355, 1)
-    both;
-  animation: tracking-in-expand 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+.svgContainer {
+  display: inline-block;
+  height: 1.4em;
+  vertical-align: middle;
 }
 
-@-webkit-keyframes tracking-in-expand {
-  0% {
-    letter-spacing: -0.5em;
-    opacity: 0;
-  }
-  40% {
-    opacity: 0.6;
-  }
-  100% {
-    opacity: 1;
-  }
+.harmonySvg {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
 }
-@keyframes tracking-in-expand {
+
+.fadeInDown {
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeInDown {
   0% {
-    letter-spacing: -0.5em;
+    -webkit-transform: translate3d(0, -100%, 0);
     opacity: 0;
+    transform: translate3d(0, -100%, 0);
   }
-  40% {
-    opacity: 0.6;
-  }
-  100% {
+
+  to {
+    -webkit-transform: translateZ(0);
     opacity: 1;
+    transform: translateZ(0);
   }
 }
 
-// TODO Анимация интро и семейства шрифтов и кегель
+@keyframes fadeInDown {
+  0% {
+    -webkit-transform: translate3d(0, -100%, 0);
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+
+  to {
+    -webkit-transform: translateZ(0);
+    opacity: 1;
+    transform: translateZ(0);
+  }
+}

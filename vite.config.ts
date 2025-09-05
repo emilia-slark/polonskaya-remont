@@ -38,5 +38,3 @@ export default defineConfig({
     include: ["react-dom", "framer-motion"],
   },
 });
-
-// TODO Настроить окружение и конфиг сборщика
