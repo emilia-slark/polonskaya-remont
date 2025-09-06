@@ -9,7 +9,7 @@
 
 .track {
   display: flex;
-  // gap: 20px; // можно убрать, если нужен полностью бесшовный текст
+
   white-space: nowrap;
   will-change: transform;
 }
@@ -23,4 +23,10 @@
   font-size: clamp(4.375rem, 2.0673rem + 4.8077vw, 6.875rem);
   margin: 0;
   white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    animation: none !important;
+  }
 }

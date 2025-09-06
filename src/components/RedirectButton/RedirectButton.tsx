@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styles from "./style.module.scss";
 
 interface RedirectButtonProps {
@@ -14,7 +14,7 @@ export const RedirectButton = ({
   dark,
   backgroundColor,
 }: RedirectButtonProps) => (
-  <Link
+  <NavLink
     to={to}
     target="_top"
     className={`${styles.button} ${dark ? styles.dark : styles.light} ${
@@ -22,5 +22,5 @@ export const RedirectButton = ({
     }`}
   >
     {title}
-  </Link>
+  </NavLink>
 );
