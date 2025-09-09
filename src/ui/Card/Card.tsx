@@ -12,8 +12,9 @@ export const Card = ({ item, className }: CardUIProps) => (
     <div className={styles.imageContainer}>
       <img src={getPublicAsset(item.image)} alt="" loading="lazy" />
     </div>
-    <div className={styles.description}>
+    <div className={styles.textWrapper}>
       <p>{item.description}</p>
+      <p>{item.location}</p>
     </div>
   </article>
 );

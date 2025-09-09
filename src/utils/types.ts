@@ -6,5 +6,6 @@ export type RouteValue = ValueOf<typeof ROUTES>;
 
 export interface CarouselItem {
   image: string,
-  description: string
+  description: string,
+  location: string
 }
