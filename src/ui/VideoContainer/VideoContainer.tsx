@@ -1,10 +1,11 @@
 import styles from "./style.module.scss";
 
-interface VideoContainerProps {
-  src?: string;
-}
+// interface VideoContainerProps {
+//   src?: string;
+// }
 
-export const VideoContainer = ({ src }: VideoContainerProps) => (
+// export const VideoContainer = ({ src }: VideoContainerProps) => (
+export const VideoContainer = () => (
   <section className={`${styles.wrapper} section`}>
     <div className={`${styles.content} container`}>
       {/* <video controls autoPlay muted loop preload="none" src={src} className={styles.video}>
