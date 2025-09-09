@@ -5,12 +5,32 @@
   color: $accent-color-dark;
 }
 
-.content {
-  padding-block: max(3vw, 30px);
-}
+// .content {
+//   padding-block: max(3vw, 30px);
+// }
 
-@media (max-width: $mobile) {
-  .video {
-    width: 100%;
+// @media (max-width: $mobile) {
+//   .video {
+//     width: 100%;
+//   }
+// }
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  padding-block: max(3vw, 30px);
+
+  & img {
+    display: block;
+    aspect-ratio: 3 / 1.5;
+    max-width: 100%;
+    object-fit: cover;
+  }
+
+  @media (max-width: $mobile) {
+    & img {
+      aspect-ratio: 3 / 1.8;
+    }
   }
 }
