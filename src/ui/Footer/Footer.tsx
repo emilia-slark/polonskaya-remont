@@ -5,10 +5,10 @@ export const Footer = () => (
     <div className={`container ${styles.content}`}>
       <div className={styles.wrapper}>
         <div className={styles.social}>
-          <h4 className={styles.footerTitle}>Социальные&nbsp;сети</h4>
+          <p className={styles.footerTitle}>Социальные&nbsp;сети</p>
           <nav className={styles.socialList}>
             <a href="https://t.me/remontpolonskaya">
-              <img src="/telegram.svg" loading="lazy" />
+              <img src="/telegram.svg" loading="lazy" alt="telegram" />
               Telegram
             </a>
           </nav>
@@ -18,12 +18,13 @@ export const Footer = () => (
         src="/logo-cropped.webp"
         className={styles.logo}
         loading="lazy"
-      ></img>
+        alt="Логотип Polonskaya"
+      />
       <div className={styles.wrapper}>
         <div className={styles.social}>
-          <h4 className={styles.footerTitle}>Часы&nbsp;работы</h4>
+          <p className={styles.footerTitle}>Часы&nbsp;работы</p>
           <div className={styles.socialList}>
-            Понедельник — Пятница <p>09:00 — 20:00</p>
+            Понедельник — Пятница <span>09:00 — 20:00</span>
           </div>
         </div>
       </div>

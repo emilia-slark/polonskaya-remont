@@ -1,69 +1,62 @@
-# React + React Router DOM + TypeScript + Vite + SCSS-modules + Framer Motion
+# Проект "Polonskaya Remont"
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Это репозиторий лендинг-сайта для компании, специализирующейся на ремонте и дизайне интерьеров. Сайт разработан как современное одностраничное приложение (SPA) с использованием React, чтобы обеспечить высокую производительность, интерактивность и удобство для пользователя.
 
-Currently, two official plugins are available:
+## 🚀 Основные возможности
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+*   **Адаптивный дизайн**: Корректное отображение на всех типах устройств: от мобильных телефонов до широкоформатных мониторов.
+*   **Интерактивные секции**:
+    *   **Главная секция (Intro)**: Привлекающая внимание секция с основной информацией и фоновым изображением.
+    *   **Галерея работ**: Демонстрация портфолио с возможностью просмотра изображений выполненных проектов.
+    *   **Карусель**: Динамическая карусель для отображения ключевых изображений или преимуществ.
+    *   **Форма обратной связи**: Позволяет пользователям отправлять заявки или вопросы.
+*   **Плавная навигация**: Использование `react-router-dom` для быстрой навигации между разделами сайта без перезагрузки страницы.
+*   **Анимации**: Применение `framer-motion` для создания плавных и современных анимаций появления элементов и переходов.
+*   **SEO-оптимизация**: Наличие `sitemap.xml` и `robots.txt` для лучшей индексации поисковыми системами.
 
-## Expanding the ESLint configuration
+## 🛠️ Стек технологий
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+*   **Фреймворк**: React
+*   **Сборщик**: Vite
+*   **Язык**: TypeScript
+*   **Стилизация**: SCSS (Sass)
+*   **Роутинг**: React Router DOM
+*   **Анимации**: Framer Motion
+*   **Слайдер/Карусель**: Keen Slider
+*   **Линтинг**: ESLint
+*   **Деплоймент**: Vercel
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 📂 Структура проекта
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+Проект имеет модульную структуру для упрощения поддержки и масштабирования.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+polonskaya-remont/
+├── public/              # Статические активы (изображения, шрифты, sitemap.xml)
+├── src/
+│   ├── assets/          # Ресурсы, используемые в коде (например, шрифты)
+│   ├── components/      # Переиспользуемые UI-компоненты (кнопки, layout, и т.д.)
+│   ├── constants/       # Константы приложения (маршруты, тексты)
+│   ├── pages/           # Компоненты-страницы (MainPage, AboutPage, NotFoundPage)
+│   ├── styles/          # Глобальные стили, переменные и миксины SCSS
+│   ├── ui/              # Крупные UI-блоки и секции страниц (Header, Footer, Gallery)
+│   ├── utils/           # Вспомогательные функции и типы TypeScript
+│   └── main.tsx         # Главный файл, точка входа в приложение
+├── .gitignore           # Файлы и папки, игнорируемые Git
+├── eslint.config.js     # Конфигурация ESLint
+├── package.json         # Список зависимостей и скриптов проекта
+├── tsconfig.json        # Конфигурация TypeScript
+├── vercel.json          # Конфигурация для деплоя на Vercel
+└── vite.config.ts       # Конфигурация сборщика Vite
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 📜 Доступные скрипты
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Для работы с проектом доступны следующие скрипты:
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+*   `npm install` — установка всех необходимых зависимостей.
+*   `npm run dev` — запуск проекта в режиме разработки с hot-reload.
+*   `npm run build` — сборка оптимизированной production-версии проекта в папку `dist`.
+*   `npm run lint` — запуск ESLint для проверки кода на ошибки и соответствие стилю.
+*   `npm run preview` — запуск локального сервера для просмотра production-сборки.
+*   `npm run preview:lan` - запуск локального сервера с доступом по локальной сети.

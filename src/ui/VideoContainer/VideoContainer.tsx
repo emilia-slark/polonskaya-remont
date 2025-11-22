@@ -12,7 +12,11 @@ export const VideoContainer = () => (
         <source src="video/video.webm" type="video/webm" />
         <source src="video/video.mp4" type="video/mp4" />
       </video> */}
-      <img src="/main/temp.jpg" alt="" loading="lazy" />
+      <img
+        src="/main/temp.jpg"
+        alt="Временное изображение для видео"
+        loading="lazy"
+      />
     </div>
   </section>
 );

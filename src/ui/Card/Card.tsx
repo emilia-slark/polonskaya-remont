@@ -10,7 +10,11 @@ interface CardUIProps {
 export const Card = ({ item, className }: CardUIProps) => (
   <article className={`${styles.container} ${className}`}>
     <div className={styles.imageContainer}>
-      <img src={getPublicAsset(item.image)} alt="" loading="lazy" />
+      <img
+        src={getPublicAsset(item.image)}
+        alt={item.description}
+        loading="lazy"
+      />
     </div>
     <div className={styles.textWrapper}>
       <p>{item.description}</p>

@@ -23,17 +23,17 @@
   gap: max(2vw, 20px);
 
   h2 {
-    font-size: calc(($heading-1-size-value - 1) * 0.9vw + 1rem);
+    font-size: calc(3 * 0.9vw + 1rem);
     @media (max-width: $tablet) {
       font-size: calc(
-        ($heading-1-size-value - 1) * calc(0.01 * 900px) + 1rem
+        3 * calc(0.01 * 900px) + 1rem
       );
     }
   }
 
   p {
     line-height: 160%;
-    font-size: calc(($heading-1-size-value - 1) * 0.1vw + 1rem);
+    font-size: calc(3 * 0.1vw + 1rem);
   }
 
   @media (max-width: $mobile) {

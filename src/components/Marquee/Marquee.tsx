@@ -58,16 +58,16 @@ export const Marquee: React.FC<MarqueeProps> = ({ text, speed = 60 }) => {
     <section className={styles.viewport} ref={containerRef}>
       <motion.div className={styles.track} style={{ x }}>
         <div className={styles.item} ref={itemRef}>
-          <h1 className={styles.text}>{text}&nbsp;</h1>
+          <span className={styles.text}>{text}&nbsp;</span>
         </div>
         <div className={styles.item} aria-hidden>
-          <h1 className={styles.text}>{text}&nbsp;</h1>
+          <span className={styles.text}>{text}&nbsp;</span>
         </div>
         <div className={styles.item} aria-hidden>
-          <h1 className={styles.text}>{text}&nbsp;</h1>
+          <span className={styles.text}>{text}&nbsp;</span>
         </div>
         <div className={styles.item} aria-hidden>
-          <h1 className={styles.text}>{text}&nbsp;</h1>
+          <span className={styles.text}>{text}&nbsp;</span>
         </div>
       </motion.div>
     </section>

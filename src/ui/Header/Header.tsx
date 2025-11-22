@@ -51,5 +51,3 @@ export const Header = ({ absolute }: HeaderProps) => {
   );
 };
 
-// TODO Стили под ссылки
-// TODO Цвет бургера

@@ -4,7 +4,7 @@ import { BookSection, Card, Gallery, Intro, VideoContainer } from "@ui";
 
 export const MainPage = () => (
   <PageTransition>
-    <main>
+    <>
       <Intro />
       <Carousel>
         {carouselItems.map((item, index) => (
@@ -16,6 +16,6 @@ export const MainPage = () => (
       <Marquee text="ИСКУССТВО ЖИТЬ КРАСИВО" />
       <VideoContainer />
       <Gallery />
-    </main>
+    </>
   </PageTransition>
 );

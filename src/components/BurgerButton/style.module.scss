@@ -34,10 +34,6 @@
   top: 0;
 }
 
-// .label span:nth-child(2) {
-//   top: 13px;
-// }
-
 .label span:nth-child(2) {
   bottom: 0;
 }
@@ -46,10 +42,6 @@
   transform: rotate(45deg);
   top: 8px;
 }
-
-// #button:checked + .label span:nth-child(2) {
-//   opacity: 0;
-// }
 
 #button:checked + .label span:nth-child(2) {
   transform: rotate(-45deg);

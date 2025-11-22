@@ -97,7 +97,7 @@ footer {
   flex-direction: column;
   gap: 0.5rem;
   grid-column: 1 / 4;
-  text-align: center;
+  align-items: center;
 
   @media (max-width: $tablet) {
     gap: 1em;

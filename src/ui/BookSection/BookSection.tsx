@@ -5,7 +5,11 @@ import { RedirectButton } from "@components";
 export const BookSection = () => (
   <section className={`${styles.wrapper}`}>
     <div className={`container ${styles.content}`}>
-      <img src="/main/book-section.webp" className={styles.image} />
+      <img
+        src="/main/book-section.webp"
+        className={styles.image}
+        alt="Элемент дизайна интерьера"
+      />
       <div className={styles.description}>
         <h2>
           Забронируйте

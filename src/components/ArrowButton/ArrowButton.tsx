@@ -8,7 +8,7 @@ interface ArrowButtonProps {
 
 export const ArrowButton = ({ left, disabled, onClick }: ArrowButtonProps) => (
   <button
-    aria-label="Previous"
+    aria-label={left ? 'Previous' : 'Next'}
     className={`${styles.nav} ${left ? styles.prev : styles.next}`}
     onClick={onClick}
     disabled={disabled}
@@ -17,6 +17,7 @@ export const ArrowButton = ({ left, disabled, onClick }: ArrowButtonProps) => (
       className={styles.arrowWrapper}
       viewBox="0 0 44 18"
       xmlns="http://www.w3.org/2000/svg"
+			aria-hidden="true"
     >
       {left && (
         <>

@@ -4,7 +4,7 @@ export const AboutSection = () => (
   <section className="section container">
     <div className={styles.content}>
       <div className={styles.description}>
-        <h2>О нас</h2>
+        <h1>О нас</h1>
         <p>
           Погрузитесь в атмосферу элегантности, воспользовавшись нашими услугами
           по&nbsp;индивидуальному ремонту и&nbsp;дизайну интерьера, где&nbsp;каждая деталь
@@ -19,7 +19,11 @@ export const AboutSection = () => (
           пространство, в&nbsp;котором вам будет по-настоящему комфортно.
         </p>
       </div>
-      <img src="/main/book-section.webp" className={styles.image} />
+      <img
+        src="/main/book-section.webp"
+        className={styles.image}
+        alt="Элемент дизайна интерьера"
+      />
     </div>
   </section>
 );
