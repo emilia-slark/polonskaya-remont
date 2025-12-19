@@ -1,3 +1,5 @@
+"use client";
+
 import {
   motion,
   useReducedMotion,
@@ -5,7 +7,7 @@ import {
   type Variants,
 } from "framer-motion";
 import type { ReactNode } from "react";
-import { useLocation } from "react-router-dom";
+import { usePathname } from "next/navigation";
 
 interface PageTransitionProps {
   children: ReactNode;
@@ -32,12 +34,12 @@ const pageTransition: Transition = {
 };
 
 export const PageTransition = ({ children }: PageTransitionProps) => {
-  const location = useLocation();
+  const pathname = usePathname();
   const reducedMotion = useReducedMotion();
 
   return (
     <motion.div
-      key={location.pathname}
+      key={pathname}
       variants={pageVariants}
       custom={reducedMotion}
       style={{ willChange: "transform, opacity" }}

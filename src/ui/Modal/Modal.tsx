@@ -1,5 +1,7 @@
-import React, { useEffect } from "react";
-import ReactDOM from "react-dom";
+"use client";
+
+import React, { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
 import styles from "./style.module.scss";
 
@@ -51,7 +53,12 @@ export const Modal: React.FC<ModalProps> = ({
   isOpen = true,
   delay = 0,
 }) => {
-  const modalRoot = document.getElementById("modal");
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    return () => setMounted(false);
+  }, []);
 
   useEffect(() => {
     const handleEscapeKey = (event: KeyboardEvent) => {
@@ -81,9 +88,12 @@ export const Modal: React.FC<ModalProps> = ({
     }
   }, [isOpen, delay, onClose]);
 
+  if (!mounted) return null;
+
+  const modalRoot = typeof document !== "undefined" ? document.getElementById("modal") : null;
   if (!modalRoot) return null;
 
-  return ReactDOM.createPortal(
+  return createPortal(
     <AnimatePresence mode="wait">
       {isOpen && (
         <motion.div

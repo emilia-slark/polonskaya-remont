@@ -1,3 +1,5 @@
+"use client";
+
 import styles from "./styles.module.scss";
 import { ROUTES } from "@constants";
 import { motion, useScroll, useTransform } from "framer-motion";

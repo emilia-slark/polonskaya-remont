@@ -1,4 +1,7 @@
-import { Link, NavLink } from "react-router-dom";
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { LABEL, ROUTES } from "@constants";
 import styles from "./styles.module.scss";
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -11,6 +14,8 @@ interface HeaderProps {
 export const Header = ({ absolute }: HeaderProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const initRender = useRef<boolean>(true);
+  const pathname = usePathname();
+  const isHomePage = pathname === ROUTES.MAIN;
 
   const handleClick = useCallback(() => {
     setIsOpen((prev) => !prev);
@@ -21,9 +26,9 @@ export const Header = ({ absolute }: HeaderProps) => {
   }, []);
 
   return (
-    <header className={`${styles.header} ${absolute && styles.mainPage}`}>
+    <header className={`${styles.header} ${(absolute || isHomePage) && styles.mainPage}`}>
       <Link
-        to={ROUTES.MAIN}
+        href={ROUTES.MAIN}
         className={styles.logoHeader}
         onClick={() => {
           if (isOpen) setIsOpen(false);
@@ -33,13 +38,13 @@ export const Header = ({ absolute }: HeaderProps) => {
       </Link>
       <nav className={`${styles.navMenu} ${isOpen ? styles.active : " "}`}>
         <div className={styles.navList}>
-          <NavLink
-            to={ROUTES.ABOUT}
+          <Link
+            href={ROUTES.ABOUT}
             className={styles.navItem}
             onClick={handleClick}
           >
             {LABEL.HEADER.NAV_ABOUT}
-          </NavLink>
+          </Link>
         </div>
       </nav>
       <BurgerButton
@@ -50,6 +55,3 @@ export const Header = ({ absolute }: HeaderProps) => {
     </header>
   );
 };
-
-// TODO Стили под ссылки
-// TODO Цвет бургера

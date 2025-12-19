@@ -1,7 +1,7 @@
 import styles from "./styles.module.scss";
 
 export const Footer = () => (
-  <footer>
+  <footer className={styles.footer}>
     <div className={`container ${styles.content}`}>
       <div className={styles.wrapper}>
         <div className={styles.social}>

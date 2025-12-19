@@ -1,3 +1,5 @@
+"use client";
+
 import { useKeenSlider } from "keen-slider/react";
 import { useCallback, type ReactNode } from "react";
 import { ArrowButton } from "@components";
@@ -24,7 +26,6 @@ export const Carousel = ({ children }: CarouselProps) => {
         slides: {
           perView: 3,
           spacing: 20,
-          // origin: "auto",
         },
       },
       "(max-width: 1024px)": {
@@ -44,14 +45,12 @@ export const Carousel = ({ children }: CarouselProps) => {
 
   const prev = useCallback(() => {
     instanceRef.current?.prev();
-  }, []);
+  }, [instanceRef]);
 
   const next = useCallback(() => {
     instanceRef.current?.next();
-  }, []);
+  }, [instanceRef]);
 
-  // const location = useLocation();
-  // ${location.hash === idCarousel && "attention-pulse"}
   return (
     <section className={`section ${style.outContainer}`} id={idCarousel}>
       <div ref={sliderRef} className={`keen-slider`}>

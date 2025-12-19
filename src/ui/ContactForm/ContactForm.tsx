@@ -1,3 +1,5 @@
+"use client";
+
 import {
   useCallback,
   useEffect,
@@ -7,7 +9,6 @@ import {
 } from "react";
 import styles from "./style.module.scss";
 import { FailureRequest, Modal } from "@ui";
-import { useLocation } from "react-router-dom";
 
 interface ContactFormData {
   name: string;
@@ -29,7 +30,6 @@ export const ContactForm = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [status, setStatus] = useState<boolean | null>(null);
-  const location = useLocation();
 
   const handleClose = useCallback(() => {
     setIsModalOpen(false);
@@ -46,7 +46,7 @@ export const ContactForm = () => {
 
     try {
       setIsLoading(true);
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/submit`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/submit`, {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -54,7 +54,7 @@ export const ContactForm = () => {
         },
         body: JSON.stringify({
           ...dataRef.current,
-          access_key: import.meta.env.VITE_API_TOKEN,
+          access_key: process.env.NEXT_PUBLIC_API_TOKEN,
         }),
       });
 
@@ -77,7 +77,9 @@ export const ContactForm = () => {
   }, []);
 
   useEffect(() => {
-    if (location.hash === `#${idForm}`) formRef.current?.scrollIntoView();
+    if (typeof window !== "undefined" && window.location.hash === `#${idForm}`) {
+      formRef.current?.scrollIntoView({ behavior: "smooth" });
+    }
   }, []);
 
   return (
