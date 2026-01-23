@@ -1,53 +1,51 @@
-import { Link, NavLink } from "react-router-dom";
-import { LABEL, ROUTES } from "@constants";
-import styles from "./styles.module.scss";
-import { useCallback, useEffect, useRef, useState } from "react";
-import { BurgerButton } from "@components";
+import { Link, NavLink } from 'react-router-dom';
+import { LABEL, ROUTES } from '@constants';
+import styles from './styles.module.scss';
+import { useCallback, useState } from 'react';
+import { BurgerButton } from '@components';
 
 interface HeaderProps {
-  absolute?: boolean;
+	absolute?: boolean;
 }
 
 export const Header = ({ absolute }: HeaderProps) => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  const initRender = useRef<boolean>(true);
+	const [isOpen, setIsOpen] = useState<boolean>(false);
 
-  const handleClick = useCallback(() => {
-    setIsOpen((prev) => !prev);
-  }, []);
+	const toggleMenu = useCallback(() => {
+		setIsOpen(prev => !prev);
+	}, []);
 
-  useEffect(() => {
-    initRender.current = false;
-  }, []);
+	const closeMenu = useCallback(() => {
+		setTimeout(() => {
+			if (isOpen) setIsOpen(false);
+		}, 20);
+	}, [isOpen]);
 
-  return (
-    <header className={`${styles.header} ${absolute && styles.mainPage}`}>
-      <Link
-        to={ROUTES.MAIN}
-        className={styles.logoHeader}
-        onClick={() => {
-          if (isOpen) setIsOpen(false);
-        }}
-      >
-        POLONSKAYA | Ремонт и&nbsp;дизайн интерьера
-      </Link>
-      <nav className={`${styles.navMenu} ${isOpen ? styles.active : " "}`}>
-        <div className={styles.navList}>
-          <NavLink
-            to={ROUTES.ABOUT}
-            className={styles.navItem}
-            onClick={handleClick}
-          >
-            {LABEL.HEADER.NAV_ABOUT}
-          </NavLink>
-        </div>
-      </nav>
-      <BurgerButton
-        checked={isOpen}
-        className={styles.menuButton}
-        onClick={handleClick}
-      />
-    </header>
-  );
+	return (
+		<header className={`${styles.header} ${absolute && styles.mainPage}`}>
+			<Link
+				to={ROUTES.MAIN}
+				className={styles.logoHeader}
+				onClick={closeMenu}
+			>
+				POLONSKAYA | Ремонт и&nbsp;дизайн интерьера
+			</Link>
+			<nav className={`${styles.navMenu} ${isOpen ? styles.active : ' '}`}>
+				<div className={styles.navList}>
+					<NavLink
+						to={ROUTES.ABOUT}
+						className={styles.navItem}
+						onClick={closeMenu}
+					>
+						{LABEL.HEADER.NAV_ABOUT}
+					</NavLink>
+				</div>
+			</nav>
+			<BurgerButton
+				checked={isOpen}
+				className={styles.menuButton}
+				onClick={toggleMenu}
+			/>
+		</header>
+	);
 };
-
