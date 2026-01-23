@@ -19,7 +19,7 @@ const initialState: FormState = {
 };
 
 async function submitAction(
-	previousState: FormState,
+	_previousState: FormState,
 	formData: FormData
 ): Promise<FormState> {
 	const data: ContactFormData = {
