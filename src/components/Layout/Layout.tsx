@@ -10,7 +10,7 @@ export const Layout = () => {
 		<>
 			<Header absolute={isHomePage} />
 			<main>
-				<AnimatePresence mode="">
+				<AnimatePresence mode="sync">
 					<Outlet />
 				</AnimatePresence>
 			</main>
