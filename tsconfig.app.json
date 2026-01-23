@@ -1,39 +1,40 @@
 {
-  "compilerOptions": {
-    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
-    "target": "ES2022",
-    "useDefineForClassFields": true,
-    "lib": ["ES2022", "DOM", "DOM.Iterable"],
-    "module": "ESNext",
-    "skipLibCheck": true,
+	"compilerOptions": {
+		"tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+		"target": "ES2022",
+		"useDefineForClassFields": true,
+		"lib": ["ES2022", "DOM", "DOM.Iterable"],
+		"module": "ESNext",
+		"skipLibCheck": true,
 
-    /* Bundler mode */
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "verbatimModuleSyntax": true,
-    "moduleDetection": "force",
-    "noEmit": true,
-    "jsx": "react-jsx",
+		/* Bundler mode */
+		"moduleResolution": "bundler",
+		"allowImportingTsExtensions": true,
+		"verbatimModuleSyntax": true,
+		"moduleDetection": "force",
+		"noEmit": true,
+		"jsx": "react-jsx",
 
-    /* Linting */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "erasableSyntaxOnly": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true,
+		/* Linting */
+		"strict": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"erasableSyntaxOnly": true,
+		"noFallthroughCasesInSwitch": true,
+		"noUncheckedSideEffectImports": true,
 
-    "baseUrl": ".",
-    "paths": {
-      "@constants" : ["src/constants"],
-      "@types" : ["src/utils/types.ts"],
-      "@helpers" : ["src/utils/helpers.ts"],
-      "@assets" : ["src/assets"],
-      "@styles" : ["src/styles/scss"],
-      "@ui" : ["src/ui"],
-      "@pages" : ["src/pages"],
-      "@components" : ["src/components"],
-    }
-  },
-  "include": ["src"]
+		"baseUrl": ".",
+		"paths": {
+			"@constants": ["src/utils/constants"],
+			"@types": ["src/utils/types.ts"],
+			"@helpers": ["src/utils/helpers.ts"],
+			"@assets": ["src/assets"],
+			"@styles": ["src/styles/scss"],
+			"@ui": ["src/ui"],
+			"@pages": ["src/pages"],
+			"@widgets": ["src/widgets"],
+			"@api": ["src/api"]
+		}
+	},
+	"include": ["src"]
 }
